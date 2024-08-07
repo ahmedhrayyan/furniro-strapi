@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "short_desc": {
+      "type": "string",
+      "required": true
+    },
+    "long_desc": {
+      "type": "text",
+      "required": true
+    },
+    "sku": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 8,
+      "maxLength": 10
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "products"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "L",
+        "XL",
+        "XS"
+      ],
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "VIOLETE",
+        "BROWN",
+        "BLACK"
+      ],
+      "required": true
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "product"
+    }
+  }
+}
