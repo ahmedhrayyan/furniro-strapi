@@ -999,6 +999,14 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.Required;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.Required;
+    discount: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 100;
+        },
+        number
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1043,6 +1051,11 @@ export interface ApiReviewReview extends Schema.CollectionType {
       'api::review.review',
       'manyToOne',
       'api::product.product'
+    >;
+    users_permissions_user: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

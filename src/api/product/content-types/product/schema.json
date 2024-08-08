@@ -97,6 +97,12 @@
         "videos",
         "audios"
       ]
+    },
+    "discount": {
+      "type": "integer",
+      "max": 100,
+      "min": 1,
+      "required": false
     }
   }
 }
