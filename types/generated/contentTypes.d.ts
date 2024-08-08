@@ -723,12 +723,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     orders: Attribute.Relation<
       'plugin::users-permissions.user',
       'oneToMany',
       'api::order.order'
     >;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -895,7 +896,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     city: Attribute.String & Attribute.Required;
     prince: Attribute.String & Attribute.Required;
     zip_code: Attribute.String & Attribute.Required;
-    users_permissions_user: Attribute.Relation<
+    user: Attribute.Relation<
       'api::order.order',
       'manyToOne',
       'plugin::users-permissions.user'
@@ -1054,7 +1055,7 @@ export interface ApiReviewReview extends Schema.CollectionType {
       'manyToOne',
       'api::product.product'
     >;
-    users_permissions_user: Attribute.Relation<
+    user: Attribute.Relation<
       'api::review.review',
       'oneToOne',
       'plugin::users-permissions.user'
