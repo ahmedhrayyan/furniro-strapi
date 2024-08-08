@@ -995,7 +995,9 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'oneToMany',
       'api::review.review'
     >;
-    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+    slider: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.Required;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
