@@ -70,6 +70,16 @@
       "relation": "oneToMany",
       "target": "api::order.order",
       "mappedBy": "users_permissions_user"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
