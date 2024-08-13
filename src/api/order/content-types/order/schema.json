@@ -46,7 +46,7 @@
       "type": "string",
       "required": true
     },
-    "prince": {
+    "province": {
       "type": "string",
       "required": true
     },

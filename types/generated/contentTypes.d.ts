@@ -894,7 +894,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       }>;
     address: Attribute.Text & Attribute.Required;
     city: Attribute.String & Attribute.Required;
-    prince: Attribute.String & Attribute.Required;
+    province: Attribute.String & Attribute.Required;
     zip_code: Attribute.String & Attribute.Required;
     user: Attribute.Relation<
       'api::order.order',
