@@ -29,7 +29,7 @@ export default () => ({
         data: {
           unit_price: targetProduct.price,
           count: count,
-          product: 1,
+          product: productId,
         },
       }
     );
